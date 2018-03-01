@@ -1,0 +1,25 @@
+.bg-primary {
+    background-color: rgb(16, 16, 78)!important;
+}
+
+body {
+    background-image: url("../assets/images/grand-central.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.heading {
+    border: rgb(255, 255, 255);
+    border-style: double;
+}
+
+.card {
+    border: rgb(255, 255, 255);
+    border-style: double;
+}
+
+.btn {
+    background-color: rgb(16,16,78);
+}
