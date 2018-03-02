@@ -23,3 +23,7 @@ body {
 .btn {
     background-color: rgb(16,16,78);
 }
+
+hr {
+    background-color: white;
+}

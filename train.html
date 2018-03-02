@@ -6,7 +6,8 @@
     <title>Employee Database</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/TimeSheet.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/train.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/train.ico" />
 
 </head>
 
@@ -15,9 +16,9 @@
         <div class="row">
             <div class="col-lg-12 mt-3">
                 <div class="jumbotron heading bg-primary mx-auto">
-                    <h1 class="text-center text-white">Employee Timetable!</h1>
+                    <h1 class="text-center text-white">Train List!</h1>
                     <hr>
-                    <h3 class="text-center text-white">Add Employee Information Below!</h3>
+                    <h3 class="text-center text-white">Add Train Information Below!</h3>
                 </div>
             </div>
         </div>
@@ -25,10 +26,10 @@
             <div class="col-lg-12">
                 <div class="card mb-3">
                     <div class="card-header bg-primary">
-                        <h4 class="text-white text-center">Employee List</h4>
+                        <h4 class="text-white text-center">Train List</h4>
                     </div>
                     <div class="card-body">
-                        <table class="table table-hover" id="data-table">
+                        <table class="table table-hover" id="trainTable">
                             <thead>
                                 <tr>
                                     <th>Train Name</th>
@@ -36,9 +37,10 @@
                                     <th>Frequency</th>
                                     <th>Next Arrival</th>
                                     <th>Minutes Away</th>
-                                    <th>Total Billed ($)</th>
                                 </tr>
                             </thead>
+                            <tbody id="addTrainTable">
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -48,7 +50,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header bg-primary text-white">
-                        <h4 class="text-center">Add Employee Here</h4>
+                        <h4 class="text-center">Add Train Here</h4>
                     </div>
                     <div class="card-body">
                         <form>
@@ -62,13 +64,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="startDate">First Train Time (HH:mm - Military Time)</label>
-                                <input type="time" class="form-control" id="trainStart" placeholder="HH:mm">
+                                <input type="text" class="form-control" id="trainStart" placeholder="Train Start Time Here">
                             </div>
                             <div class="form-group">
                                 <label for="monthRate">Frequency (min)</label>
                                 <input type="text" class="form-control" id="frequency" placeholder="Frequency (min) Here">
                             </div>
-                            <button type="submit" class="btn btn-primary" id="addEmployee">Submit</button>
+                            <button type="submit" class="btn btn-primary" id="addTrain">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -78,7 +80,8 @@
 
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script rel="stylesheet" type="text/javascript" src="assets/TimeSheet.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script rel="stylesheet" type="text/javascript" src="assets/train.js"></script>
 </body>
 
 </html>
