@@ -59,19 +59,19 @@ database.ref().on("child_added", function (snapshot) {
     let newRow = $("<tr>");
 
     // append train name here
-    let nameCell = $("<td>");
-    nameCell.text(value.name);
-    newRow.append(nameCell);
+    let nameCol = $("<td>");
+    nameCol.text(value.name);
+    newRow.append(nameCol);
 
     // append destination here
-    let destinationCell = $("<td>");
-    destinationCell.text(value.destination);
-    newRow.append(destinationCell);
+    let desCol = $("<td>");
+    desCol.text(value.destination);
+    newRow.append(desCol);
 
     // append frequency here
-    let frequencyCell = $("<td>");
-    frequencyCell.text(value.frequency);
-    newRow.append(frequencyCell);
+    let freqCol = $("<td>");
+    freqCol.text(value.frequency);
+    newRow.append(freqCol);
 
     // create next arrival time and append it here
     let timeConverted = moment(value.startTime, "HH:mm").subtract(1, "days");
