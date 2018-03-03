@@ -22,10 +22,10 @@ $("#addTrain").on("click", function () {
     event.preventDefault();
 
     // grab input values and then trim them so they don't have extra spaces
-    let name = $("#nameInput").val().trim();
-    let destination = $("#destination").val().trim();
-    let startTime = $("#trainStart").val();
-    let frequency = $("#frequency").val().trim();
+    name = $("#nameInput").val().trim();
+    destination = $("#destination").val().trim();
+    startTime = $("#trainStart").val();
+    frequency = $("#frequency").val().trim();
 
     // check to make sure the correct values are being grabbed
     console.log("name: " + name);
@@ -33,12 +33,6 @@ $("#addTrain").on("click", function () {
     console.log("start time: " + startTime);
     console.log("frequency: " + frequency);
     console.log("--------------------------------------------------");
-
-    // set the values of the input sections on forms back to empty strings
-    $("#nameInput").val("");
-    $("#destination").val("");
-    $("#trainStart").val("");
-    $("#frequency").val("");
 
     // Add the new variables to Firebase server
     database.ref().push({
@@ -48,6 +42,12 @@ $("#addTrain").on("click", function () {
         tFrequency: frequency,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
+
+    // set the values of the input sections on forms back to empty strings
+    $("#nameInput").val("");
+    $("#destination").val("");
+    $("#trainStart").val("");
+    $("#frequency").val("");
 
 });
 
@@ -60,25 +60,25 @@ database.ref().on("child_added", function (snapshot) {
 
     // append train name here
     let nameCol = $("<td>");
-    nameCol.text(value.name);
+    nameCol.text(value.tName);
     newRow.append(nameCol);
 
     // append destination here
     let desCol = $("<td>");
-    desCol.text(value.destination);
+    desCol.text(value.tDestination);
     newRow.append(desCol);
 
     // append frequency here
     let freqCol = $("<td>");
-    freqCol.text(value.frequency);
+    freqCol.text(value.tFrequency);
     newRow.append(freqCol);
 
     // create next arrival time and append it here
-    let timeConverted = moment(value.startTime, "HH:mm").subtract(1, "days");
+    let timeConverted = moment(value.tTime, "HH:mm").subtract(1, "days");
     let currentTime = moment();
     let diffTime = moment().diff(moment(timeConverted), "minutes");
-    let tRemainder = diffTime % value.frequency;
-    let minTillTrain = value.frequency - tRemainder;
+    let tRemainder = diffTime % value.tFrequency;
+    let minTillTrain = value.tFrequency - tRemainder;
     let nextTrain = moment().add(minTillTrain, "minutes");
     let arriveNext = $("<td>");
     arriveNext.text(moment(nextTrain).format("hh:mm A"));
