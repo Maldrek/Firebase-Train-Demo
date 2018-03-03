@@ -15,9 +15,9 @@ body {
     border-style: double;
 }
 
-.card {
-    border: rgb(255, 255, 255);
-    border-style: double;
+.card-header {
+    border: rgb(255, 255, 255)!important;
+    border-style: double!important;
 }
 
 .btn {
